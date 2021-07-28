@@ -25,21 +25,21 @@
     </div>
     <hr>
     <main>
-        {{--  <h1><center>Layanan</center></h1>
+        <h1><center>Lowongan</center></h1>
             <div class="container marketing">
                 <div class="row">
-                    @foreach($layanan as $lyn)
-                    <div class="col-lg-6">
-                        <img class="rounded-circle" src="{{ Storage::url('public/').$lyn->gambar }}" alt="" style="height: 250px; object-fit:contain; width:100%" >
-                        <h3><center>{{$lyn->judul_layanan}}</h3>
-                        <p>{{Str::limit($lyn->isi_layanan, 70) }}</p>
-                        <a href="{{route('lihat.show', $lyn->id)}}" class="btn btn-primary m-1">Lihat</a>
+                    @foreach($lowongan as $low)
+                    <div class="col-lg-4">
+                        <img class="card" src="{{ Storage::url('public/').$low->gambar }}" alt="" style="height: 250px; object-fit:contain; width:100%" >
+                        <h3><center>{{$low->judul}}</h3>
+                        <p>{{Str::limit($low->deskripsi, 70) }}</p>
+                        <a href="#" class="btn btn-primary m-1">Lihat</a>
                     </div>
                     @endforeach
                 </div>
             </div>
         <br><br>
-        <div class="album py-5 bg-light">
+        {{--  <div class="album py-5 bg-light">
             <div class="container">
                 @foreach($konfigurasi as $kon)
                 <div class="row judul">
@@ -51,8 +51,8 @@
                     
                     <div class="col-md-12">
                         <p style="text-align: center;">
-                            {{--  <!-- Map dari Google Map -->  --}}
-                            {{--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.8224625870707!2d106.93581061436238!3d-6.416852964539342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994e3db9c3631%3A0xa8eba51fd54f10e3!2sPuskesmas%20Gunung%20Putri!5e0!3m2!1sid!2sid!4v1626767090926!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <!-- Map dari Google Map -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.8224625870707!2d106.93581061436238!3d-6.416852964539342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994e3db9c3631%3A0xa8eba51fd54f10e3!2sPuskesmas%20Gunung%20Putri!5e0!3m2!1sid!2sid!4v1626767090926!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </p>
                     </div>
                 </div>

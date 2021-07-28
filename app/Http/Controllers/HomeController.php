@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lowongan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        return view('beranda');
+        $datalowongan = Lowongan::all();
+        return view('beranda', [
+            'lowongan' => $datalowongan
+        ]);
     }
     /**
      * Create a new controller instance.

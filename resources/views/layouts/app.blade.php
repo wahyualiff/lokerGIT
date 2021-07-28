@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/index') }}">
+                <a class="navbar-brand" href="{{ url('/beranda') }}">
                     LOKER
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -35,12 +35,12 @@
                     <ul class="navbar-nav mr-auto">
                         @role('perusahaan')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('pelamar.index')}}">Lowongan <span class="sr-only"></span></a>
+                            <a class="nav-link" href="{{route('lowongan.index')}}">Lowongan <span class="sr-only"></span></a>
                         </li>
                         @endrole
                         @role('admin')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('pelamar.index')}}">Lowongan <span class="sr-only"></span></a>
+                            <a class="nav-link" href="{{route('lowongan.index')}}">Lowongan <span class="sr-only"></span></a>
                         </li>
                         @endrole
                     </ul>
@@ -68,6 +68,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @role('pelamar')
+                                    <a class="dropdown-item" href="{{route('pelamar_profil.index')}}">Profil</a>
+                                    @endrole
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
