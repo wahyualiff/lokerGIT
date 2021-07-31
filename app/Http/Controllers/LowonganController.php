@@ -53,6 +53,9 @@ class LowonganController extends Controller
             'email' => $request->email,
             'judul' => $request->judul,
             'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'kota' => $request->kota,
+            'kategori' => $request->kategori,
             'deskripsi' => $request->deskripsi,
             'tgl_buka' => $request->tgl_buka,
             'tgl_tutup' => $request->tgl_tutup,
@@ -102,6 +105,9 @@ class LowonganController extends Controller
         $lowongan->email = $request->email;
         $lowongan->judul = $request->judul;
         $lowongan->alamat = $request->alamat;
+        $lowongan->telepon = $request->telepon;
+        $lowongan->kota = $request->kota;
+        $lowongan->kategori = $request->kategori;
         $lowongan->deskripsi = $request->deskripsi;
         $lowongan->tgl_buka = $request->tgl_buka;
         $lowongan->tgl_tutup = $request->tgl_tutup;

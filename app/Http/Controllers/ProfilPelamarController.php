@@ -17,7 +17,7 @@ class ProfilPelamarController extends Controller
     {
         // Halaman utama pelamar_profil
         $user = Auth::user();
-        if ($user->hasRole('pelamar') or $user->hasRole('admin')) {
+        if ($user->hasRole('pelamar') or $user->hasRole('perusahaan')) {
             // dapat mengakses data siswa
             $datausers = User::all();
             return view('pelamar_profil', ['pelamar_profil' => $datausers]);

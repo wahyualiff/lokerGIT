@@ -2,7 +2,32 @@
 
 @section('content')
 <main>
-<div class="container">
+    <div class="container">
+        <div class="row d-flex align-items-stretch">
+            @foreach($lowongan as $low)
+            <div class="col-md-3">
+                <br>
+                <img class="card" src="{{ Storage::url('public/').$low->gambar }}" alt="" style="height: 200px; object-fit:contain; width:100%" >
+                <div class="card-body" style="height: 250px; object-fit:contain; width:100%">
+                <h4><a href="{{route('lowongan.show', $low->id)}}" style="line-height: 16px;">{{$low->judul}}</a></h4>
+                <p class="card-text">{{$low->tgl_buka}} s.d. {{$low->tgl_tutup}}</p>
+                <i class="fa fa-map-marker"></i> {{$low->kota}} &nbsp;&nbsp;
+                <i class="fa fa-tags icon-info"></i> {{$low->kategori}} <br/>
+                <br>
+                @role('admin')
+                <i class="fa fa-pencil"></i><a href="{{route('lowongan.edit', $low->id)}}"> Edit</a> &nbsp;&nbsp;
+                <i class="fa fa-warning"></i><a href="{{route('lowongan.destroy', $low->id)}}"> Delete</a>
+                @endrole
+                @role('perusahaan')
+                <i class="fa fa-pencil"></i><a href="{{route('lowongan.edit', $low->id)}}"> Edit</a> &nbsp;&nbsp;
+                <i class="fa fa-warning"></i><a href="{{route('lowongan.destroy', $low->id)}}"> Delete</a>
+                @endrole
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+{{--  <div class="container">
     <div class="card">
         <div class="card-header">
             <h3>Lowongan</h3>
@@ -17,8 +42,6 @@
                     <th>Lowongan</th>
                     <th>Alamat</th>
                     <th>Deskripsi</th>
-                    <th>Tanggal Buka</th>
-                    <th>Tanggal Tutup</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach($lowongan as $low)
@@ -31,8 +54,6 @@
                     <td>{{$low->judul}}</td>
                     <td>{{$low->alamat}}</td>
                     <td>{{$low->deskripsi}}</td>
-                    <td>{{$low->tgl_buka}}</td>
-                    <td>{{$low->tgl_tutup}}</td>
                     <td>
                         <ul class="nav">
                             <a href="{{route('lowongan.show', $low->id)}}" class="btn btn-primary m-1">Lihat</a>
@@ -49,6 +70,6 @@
             </table>
         </div>
     </div>
-</div>
+</div>  --}}
 </main>
 @endsection

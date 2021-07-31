@@ -22,6 +22,7 @@
                         <option value="Tangerang"   {{ Auth::user()->kota == "Tangerang" ? "selected" : ""}}>Tangerang</option>
                         <option value="Bekasi"      {{ Auth::user()->kota == "Bekasi" ? "selected" : ""}}>Bekasi</option>
                     </select>
+                    @role('pelamar')
                     Jenis Kelamin
                     <select name="jenis_kelamin" id="">
                         <option value="Laki-laki" {{ Auth::user()->jenis_kelamin == "Laki-laki" ? "selected" : ""}}>Laki-laki</option>
@@ -35,7 +36,9 @@
                         <option value="Menikah" {{ Auth::user()->status == "Menikah" ? "selected" : ""}}>Menikah</option>
                         <option value="Duda/Janda" {{ Auth::user()->status == "Duda/Janda" ? "selected" : ""}}>Duda/Janda</option>
                     </select>
+                    @endrole
                     Telepon <input type="number" name="telepon" required value="{{ Auth::user()->telepon }}">
+                    @role('pelamar')
                     Pendidikan Terakhir
                     <select name="pendidikan" id="">
                         <option value="SD" {{ Auth::user()->pendidikan == "SD" ? "selected" : ""}}>SD</option>
@@ -48,6 +51,7 @@
                     Tempat Pendidikan Terakhir <input type="text" name="tempat_pendidikan" required value="{{ Auth::user()->tempat_pendidikan }}">
                     Tempat Bekerja Terakhir <input type="text" name="tempat_kerja" required value="{{ Auth::user()->tempat_kerja }}">
                     Posisi Pekerjaan Terakhir <input type="text" name="pekerjaan_terakhir" required value="{{ Auth::user()->pekerjaan_terakhir }}">
+                    @endrole
                 </ul>
                 <hr>
                 <center><a href="/beranda" class="btn btn-primary">Kembali</a>

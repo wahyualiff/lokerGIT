@@ -53,7 +53,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'role' => 'required',
         ]);
     }
 
@@ -65,9 +64,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
-            'role' => $data['role'],
             'alamat' => $data['alamat'],
             'kota' => $data['kota'],
             'jenis_kelamin' => $data['jenis_kelamin'],
@@ -82,5 +80,8 @@ class RegisterController extends Controller
             'tempat_kerja' => $data['tempat_kerja'],
             'pekerjaan_terakhir' => $data['pekerjaan_terakhir'],
         ]);
+        $user->assignRole('pelamar');
+
+        return $user;
     }
 }

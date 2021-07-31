@@ -5,6 +5,8 @@ use App\Http\Controllers\PelamarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilPelamarController;
 use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ApplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/beranda', [HomeController::class, 'home'])->name('beranda');
 
 // Resource
-Route::resource('pelamar', PelamarController::class)->middleware("role:admin|perusahaan");
-Route::resource('pelamar_profil', ProfilPelamarController::class)->middleware('role:pelamar');
+Route::resource('pelamar', PelamarController::class);
+Route::resource('pelamar_profil', ProfilPelamarController::class)->middleware("role:pelamar|perusahaan");
+Route::resource('apply', ApplyController::class)->middleware('role:pelamar');
 Route::resource('lowongan', LowonganController::class);
+Route::resource('user', UserController::class);

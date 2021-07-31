@@ -15,6 +15,8 @@
                     Email <input type="email" name="email" required>
                     Lowongan <input type="text" name="judul" required>
                     Alamat <input type="text" name="alamat" required>
+                    Telepon <input type="number" name="telepon" required>
+                    Kota <input type="text" name="kota" required>
                     Kategori <input type="text" name="kategori" required>
                     Deskripsi <input type="text" name="deskripsi" required>
                     Tanggal Buka <input type="date" name="tgl_buka" required>
