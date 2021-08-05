@@ -1,34 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
-<br>
-<br>
 <div class="container my-3 w-50" style="min-height: 500px">
     <div class="card">
         <div class="card-body">
+            @role('admin')
             <h1>Tambah Data Pelamar</h1>
+            @endrole
+            @role('perusahaan')
+            <h1>Tambah Data Pelamar</h1>
+            @endrole
+            @role('pelamar')
+            <h1>Masukkan Data diri</h1>
+            @endrole
             <form action="{{route('pelamar.index')}}" method="POST">
                 @csrf
                 <ul class="list-group">
-                    Nama <input type="text" name="name" required>
-                    Alamat <input type="text" name="alamat" required>
-                    Kota <input type="text" name="kota" required>
-                    <div class="form-group">
+                    Nama <input type="text" name="name" class="form-control my-2" required>
+                    Alamat <input type="text" name="alamat" class="form-control my-2" required>
+                    Kota <input type="text" name="kota" class="form-control my-2" required>
+                    <div class="form-group my-2">
                         <label>Jenis Kelamin </label>
                         <select name="jenis_kelamin" class="form-control">
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
-                    Tempat Lahir <input type="text" name="tempat_lahir" required>
-                    Tanggal Lahir <input type="date" name="tgl_lahir" required>
-                    Status <input type="text" name="status" required>
-                    Email <input type="text" name="email" required>
-                    Telepon <input type="number" name="telepon" required>
-                    Pendidikan Terakhir <input type="text" name="pendidikan">
-                    Tempat Pendidikan <input type="text" name="tempat_pendidikan">
-                    Tempat Kerja Terakhir <input type="text" name="tempat_kerja_terakhir">
-                    Pekerjaan Terakhir <input type="text" name="pekerjaan_bekerja_terakhir">
+                    Tempat Lahir <input type="text" name="tempat_lahir" class="form-control my-2" required>
+                    Tanggal Lahir <input type="date" name="tgl_lahir" class="form-control my-2" required>
+                    <div class="form-group my-2">
+                        <label>Status </label>
+                        <select name="status" class="form-control">
+                            <option value="Belum Menikah">Belum Menikah</option>
+                            <option value="Menikah">Menikah</option>
+                            <option value="Duda/Janda">Duda/Janda</option>
+                        </select>
+                    </div>
+                    Email <input type="text" name="email" class="form-control my-2" required>
+                    Telepon <input type="number" name="telepon" class="form-control my-2" required>
+                    <div class="form-group my-2">
+                    <label>Pendidikan </label>
+                        <select name="pendidikan" class="form-control">
+                            <option value="SD">SD</option>
+                            <option value="SMP SEDERAJAT">SMP SEDERAJAT</option>
+                            <option value="SMA SEDERAJAT">SMA SEDERAJAT</option>
+                            <option value="Diploma">SD</option>
+                            <option value="S1">SD</option>
+                            <option value="S2">SD</option>
+                        </select>
+                    </div>
+                    Tempat Pendidikan <input type="text" name="tempat_pendidikan" class="form-control my-2">
+                    Tempat Kerja Terakhir <input type="text" name="tempat_kerja_terakhir" class="form-control my-2">
+                    Pekerjaan Terakhir <input type="text" name="pekerjaan_bekerja_terakhir" class="form-control my-2">
                 </ul>
                 <hr>
                 <a href="{{route('pelamar.index')}}" class="btn btn-primary">Kembali</a>

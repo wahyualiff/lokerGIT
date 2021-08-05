@@ -21,13 +21,12 @@
                     <br><i class="fa fa-phone" style="text-align: right;"></i> {{$lowongan->telepon}}
                 </p>
             <hr>
-            <div class="row">
-                &nbsp;
+                
             @role('pelamar')
-            <a href="{{route('pelamar.create')}}" class="btn btn-success float-right" >Apply</a> &nbsp;
+            <a href="{{route('pelamar.create')}}" class="btn btn-success float-right mx-2" >Lamar</a> &nbsp;
             @endrole
             @role('admin')
-            <a href="{{route('lowongan.index')}}" class="btn btn-primary float-right" >Kembali</a>
+            <a href="{{route('lowongan.index')}}" class="btn btn-primary float-right" >Kembali</a> 
             @endrole
             @role('perusahaan')
             <a href="{{route('lowongan.index')}}" class="btn btn-primary float-right" >Kembali</a>

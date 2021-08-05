@@ -2,7 +2,32 @@
 
 @section('content')
 <main>
-    <div class="container">
+<div class="container">
+    <div class="row">
+        @foreach($lowongan as $low)
+        <div class="col-lg-4 d-flex align-items-stretch col-md-offset-2">
+            <div class="card" style="width: 25rem;">
+            <img src="{{ Storage::url('public/').$low->gambar }}" alt="" style="height: 250px; object-fit-contain; width:100%">
+                <div class="card-body">
+                    <h4><a href="{{route('lowongan.show', $low->id)}}" style="line-height: 16px;">{{$low->judul}}</a></h4>
+                    <p class="card-text">{{$low->tgl_buka}} s.d. {{$low->tgl_tutup}}</p>
+                    <i class="fa fa-map-marker"></i> {{$low->kota}} &nbsp;&nbsp;
+                    <i class="fa fa-tags icon-info"></i> {{$low->kategori}} <br/>
+                    <br>
+                @role('admin')
+                <i class="fa fa-pencil"></i><a href="{{route('lowongan.edit', $low->id)}}"> Edit</a> &nbsp;&nbsp;
+                <i class="fa fa-warning"></i><a href="{{route('lowongan.destroy', $low->id)}}"> Delete</a>
+                @endrole
+                @role('perusahaan')
+                <i class="fa fa-pencil"></i><a href="{{route('lowongan.edit', $low->id)}}"> Edit</a> &nbsp;&nbsp;
+                <i class="fa fa-warning"></i><a href="{{route('lowongan.destroy', $low->id)}}"> Delete</a>
+                @endrole
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+    {{--  <div class="container">
         <div class="row d-flex align-items-stretch">
             @foreach($lowongan as $low)
             <div class="col-md-3">
@@ -26,7 +51,7 @@
             </div>
             @endforeach
         </div>
-    </div>
+    </div>  --}}
 {{--  <div class="container">
     <div class="card">
         <div class="card-header">

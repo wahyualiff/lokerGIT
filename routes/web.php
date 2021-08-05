@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfilPelamarController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApplyController;
+use App\Http\Controllers\LihatController;
+use App\Models\Lowongan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,8 @@ use App\Http\Controllers\ApplyController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $datalowongan = Lowongan::all();
+    return view('welcome', ['lowongan' => $datalowongan]);
 });
 
 Auth::routes();
@@ -30,7 +33,8 @@ Route::get('/beranda', [HomeController::class, 'home'])->name('beranda');
 
 // Resource
 Route::resource('pelamar', PelamarController::class);
-Route::resource('pelamar_profil', ProfilPelamarController::class)->middleware("role:pelamar|perusahaan");
+Route::resource('pelamar_profil', ProfilPelamarController::class)->middleware("role:admin|perusahaan");
 Route::resource('apply', ApplyController::class)->middleware('role:pelamar');
-Route::resource('lowongan', LowonganController::class);
-Route::resource('user', UserController::class);
+Route::resource('lowongan', LowonganController::class)->middleware("role:admin|perusahaan");
+Route::resource('user', UserController::class)->middleware("role:admin|perusahaan");
+Route::resource('lihat', LihatController::class);

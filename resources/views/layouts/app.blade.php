@@ -23,6 +23,16 @@
 
     <!-- Font Awesome --!>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+
+    <style>
+        main {
+            width: 100%;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: ghostwhite;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -55,12 +65,22 @@
                         @endrole
                         @role('admin')
                         <li class="nav-item active">
+                            <a class="nav-link" href="{{route('user.index')}}">User <span class="sr-only"></span></a>
+                        </li>
+                        @endrole
+                        @role('admin')
+                        <li class="nav-item active">
                             <a class="nav-link" href="{{route('lowongan.index')}}">Lowongan <span class="sr-only"></span></a>
                         </li>
                         @endrole
                         @role('admin')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('user.index')}}">User <span class="sr-only"></span></a>
+                            <a class="nav-link" href="{{route('lowongan.create')}}">Tambah Lowongan <span class="sr-only"></span></a>
+                        </li>
+                        @endrole
+                        @role('admin')
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('pelamar.index')}}">Pelamar <span class="sr-only"></span></a>
                         </li>
                         @endrole
                     </ul>
@@ -110,7 +130,7 @@
             </div>
         </nav>
 
-        <main class="py-5">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

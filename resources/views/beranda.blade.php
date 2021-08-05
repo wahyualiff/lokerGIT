@@ -2,7 +2,7 @@
 
 @section('content')
 <body>
-    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="{{asset('storage/B1.png')}}" class="d-block w-100" alt="...">
@@ -14,11 +14,11 @@
             <img src="{{asset('storage/B3.png')}}" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -33,7 +33,7 @@
                     <br>
                     <img class="card" src="{{ Storage::url('public/').$low->gambar }}" alt="" style="height: 250px; object-fit:contain; width:100%" >
                     <div class="card-body" style="height: 250px; object-fit:contain; width:100%">
-                    <h4><a href="{{route('lowongan.show', $low->id)}}" style="line-height: 16px;">{{$low->judul}}</a></h4>
+                    <h4><a href="{{route('lihat.show', $low->id)}}" style="line-height: 16px;">{{$low->judul}}</a></h4>
                     <p class="card-text">{{$low->tgl_buka}} s.d. {{$low->tgl_tutup}}</p>
                     <i class="fa fa-map-marker"></i> {{$low->kota}} &nbsp;&nbsp;
                     <i class="fa fa-tags icon-info"></i> {{$low->kategori}} <br/>
